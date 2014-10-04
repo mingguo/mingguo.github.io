@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+	<title>Rare Disease Map</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand|Gochi+Hand|Rock+Salt|Courgette' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="style_m.css" />
+
+	<!--http://stackoverflow.com/questions/19843373/linking-to-other-pages-in-html-via-drop-down-menu -->
+	<script type="text/javascript">
+    function goToNewPage()
+    {
+        var url = document.getElementById('list').value;
+        if(url != 'none') {
+            window.location = url;
+        }
+    }
+	</script>
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+      	<title></title>
+
+      	<link rel="stylesheet" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">
+  		<script src="http://js.arcgis.com/3.10/"></script>
+
+  		<script>
+      		// code to create the map and add a basemap will go here 
+      		var map;
+  			require(["esri/map", "dojo/domReady!"], function(Map) { 
+   				map = new Map("mapDiv", {
+      			center: [-56.049, 38.485],
+      			zoom: 3,
+      			basemap: "streets"
+    			});
+  			});
+  		</script>
+
+</head>
+
+
+<body>
+		<header>
+			<div id="RGI_logo">
+				<a href="http://raregenomics.org"><img src="RGI Logo_fullcolor.jpg" height="120" width="150"></a>
+			</div>		
+
+			<div id="RDC_header">
+				<h2>RARE</h2><div id="space"></div><h1>D</h1><h2>IS</h2><h1>EASE</h1><div id="space"></div><h2> COMMON</h2>
+			</div>
+			<div class="mobile-nav">
+			    <div class="menu-btn" id="menu-btn">
+				    <div></div>
+				    <span></span>
+				    <span></span>
+				    <span></span>
+				</div>
+			
+				<div class="responsive-menu">
+			        <ul>
+			           <li>Homepage</li>
+			           <li>Map</li>
+			           <li>Group</li>
+			        </ul>
+			    </div>
+			</div>
+	</header>
+
+	<section id= "left">
+		<div id= "filter">
+			<label class="location_control_label" for="selectCountry">Find resources on:</label>
+			<select id="list" class="location_control">
+				<option value='none' selected>Choose one</option>
+				<option value="webmap.html">Ecological Footprint</option>
+				<option value="Australia.html">Australia</option>
+				<option value="China.html">China</option>
+			</select>
+			<input type=button value="Go" onclick="goToNewPage()" />
+		</div>
+
+	</section>
+
+
+	<section id="mapDiv">
+		<!--	<img src = "GLOBE_DetailMap2.png" width= 100%>	
+        -->
+	</section>
+
+	<section id = "bottom">
+	<p>
+
+	</p>
+    </section>
+
+    <footer>
+	<p> Copyright Mingformatics&copy; 2014</p>
+	</footer>
+</body>
+
+</html>
